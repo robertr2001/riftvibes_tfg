@@ -1,5 +1,5 @@
 const riotKey = "api_key=RGAPI-351ee7e9-3e3b-46b1-ad45-3d58c1edb8a7";
-let idPersona = await getSummonerByName("i love handicap", "euw1", "id");
+let idPersona = await getSummonerByName("Juasitos", "euw1", "id");
 let cosa = await getInGameChampion("euw1", idPersona);
 console.log(cosa);
 async function getSummonerByName(nombre, region, infoSummoner) {
@@ -28,11 +28,15 @@ async function getInGameChampion(region, id) {
     let respuesta = await fetch(peticion);
     let partida = await respuesta.json();
     let datosJugadores = partida["participants"];
-    let idCampeon;
     for (let i = 0; i < 10; i++) {
         let datosJugador = datosJugadores[i];
         if (datosJugador.summonerId == id) {
-            return datosJugador.championId;
+            
+            return await getNombreCampeon(datosJugador.championId);
         }
     }
+}
+
+async function getNombreCampeon(idCampeon){
+
 }

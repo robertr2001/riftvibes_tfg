@@ -2,7 +2,7 @@ const express=require("express");
 const morgan=require("morgan");
 const path= require("path");//Hace que las rutas sean independientes de S.O
 const app = express();
-const { mongoose }=require("./database");
+const { mongoose } =require("./database");
 //Configuracion
 app.set("port",process.env.PORT||3000) //Para despligue en servidor en la nube||local port 3000
 
