@@ -12,7 +12,7 @@ app.use(express.json());//Comprueba que el formato de los datos es Json
 
 //Rutas
 
-app.use("/api/task",require("./routes/rutas.routes"));
+app.use("/users",require("./routes/rutas.routes"));
 
 //Static files(HTML/CSS)
 //console.log(path.join(__dirname,"public"));//Devuelve la carpeta donde se encuentra ahora mismo ("src")+Lo une independientemente de S.O a la direccion que quiera

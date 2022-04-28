@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 
-const URI="mongodb://localhost/mern-tasks";
+const URI="mongodb://localhost/RiftVibes";
 
 mongoose.connect(URI)//Lo voy a hacer en local, no se que hacer para subirlo de momento
     .then(_db =>console.log("DB conectada"))
