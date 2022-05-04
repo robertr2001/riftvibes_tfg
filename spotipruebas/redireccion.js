@@ -1,6 +1,8 @@
+let datosJson;
 document.addEventListener("DOMContentLoaded", function() {
     let stringHash = window.location.hash;
     let cadenasDatos = stringHash.split("&");
+    
     console.log(cadenasDatos);
     let datos = {
         token_acceso: cadenasDatos[0].split("=")[1],
@@ -21,14 +23,14 @@ document.addEventListener("DOMContentLoaded", function() {
             alert(`Error ${xhr.status}: ${xhr.statusText}`);
         } else {
             let informacion = xhr.response;
-            console.log(informacion);
             datosRelevantes = {
                 nombre_artistas: datosArtistas(informacion.item.artists, "name"),
                 id_artistas: datosArtistas(informacion.item.artists, "id"),
                 nombre_cancion: informacion.item.name,
                 id_cancion: informacion.item.id
             }
-            let datosJson = JSON.stringify(datosRelevantes);
+            datosJson = JSON.stringify(datosRelevantes);
+            console.log(datosJson);
 
         }
     }
@@ -43,12 +45,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (envioxhr.status != 200) {
                 alert(`Error ${envioxhr.status}: ${envioxhr.statusText}`);
             } else {
-                console.log("enviado");
+                console.log("enviados");
+                //datosArtistas(envioxhr.response[0],envioxhr.response[1]);
             }
         }
     })
 
-    function datosArtistas(datos, tipoDato) {
+    function datosArtistas(datos,tipoDato) {//tipoDato
         let arrayDatos = [];
         datos.forEach(dato => {
             arrayDatos.push(dato[tipoDato]);

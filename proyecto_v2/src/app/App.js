@@ -1,6 +1,5 @@
 import React,{ Component } from "react";
-const verificado=false;
-require("../");
+const { getUrl,getCodeUsuario,getTokenUsuario }=require("../controller/spotify.controller");
 class App extends Component{
 
     constructor(){
@@ -9,7 +8,9 @@ class App extends Component{
             nombreUsuario:"",
             contraseña:"",
             nombreInvocador:"",
-            region:""
+            region:"",
+            tokenSpotify:"",
+            tokenSpotifyResfesh:""
         };
         this.handleChange=this.handleChange.bind(this);
         this.crearUsuario=this.crearUsuario.bind(this);
@@ -39,13 +40,28 @@ class App extends Component{
     }
     //Crear Url Spotify
     crearUrlSpotify(event){
+        event.preventDefault();
         const enlanceVS=document.getElementById("enlaceVinculoSpotify");
+        enlanceVS.onclick=function(){
+            const urlSpotify= getUrl();
+            console.log(urlSpotify);
+            window.location=urlSpotify;
+        }
         
     }
     spotifyVerificado(event){
-        if(!verificado){
-
+        const verificado=getCodeUsuario(window.location.search);
+        if(!verificado.valido){
+            event.preventDefault();
         }
+        else{
+            //let datosUsuario=getTokenUsuario(verificado.code);  
+            // this.setState({
+            //     [tokenSpotify]: datosUsuario.access_token,
+            //     [tokenSpotifyRefresh]:datosUsuario.refresh_token
+            // })
+        }
+        
     }
     render(){
         return(
@@ -68,7 +84,7 @@ class App extends Component{
                         <option value="TR1">TR</option> 
                     </select>
                     <label>
-                        <input type="checkbox" onClick={this.spotifyVerificado}/><a  id="enlaceVinculoSpotify" onClick={this.crearUrlSpotify}>Vincula Spotify</a>
+                        <input type="checkbox" onClick={this.spotifyVerificado}/><a  id="enlaceVinculoSpotify"  href="#"onClick={this.crearUrlSpotify}>Vincula Spotify</a>
                     </label>
                     <button type="submit">
                         Enviar

@@ -11,10 +11,10 @@ const fetch=require("node-fetch");
         const peticion = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nombre}?${riotKey}`;
         let respuesta = await fetch(peticion);
         let datos = await respuesta.json();
-        return await getInGameChampion(region,datos.id);
+        return datos.id;
         }
     
-    async function getInGameChampion(region, id) {
+    let getInGameChampion = async function getInGameChampion(id,region) {
         //peticion
         const peticion = `https://${region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${id}?${riotKey}`;
         let respuesta = await fetch(peticion);
@@ -29,7 +29,8 @@ const fetch=require("node-fetch");
     }
 
 module.exports={
-    getSummonerByName: getSummonerByName
+    getSummonerByName: getSummonerByName,
+    getInGameChampion:getInGameChampion
 }
     
 
