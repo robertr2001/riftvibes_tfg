@@ -2,10 +2,10 @@
 
 ## To-Do
 
-- [ ] API Spotify
-    - [ ] Saber que canción está escuchando el usuario.
+- [] API Spotify
+    - [X] Saber que canción está escuchando el usuario.
     - [ ] Crear/modificar playlist.
-- [ ] Petición API Riot para saber el champ jugado por cada user.
+- [X] Petición API Riot para saber el champ jugado por cada user.
 - [ ] Petición API Local para modificar la BBDD, metiendo una canción en un campeon concreto.
 - [ ] Relacionar todas las peticiones anteriores y hacerlo cada X tiempo (cron)
 - [ ] Saber si una persona se ha logueado.
