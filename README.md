@@ -2,7 +2,7 @@
 
 ## To-Do
 
-- [] API Spotify
+- [ ] API Spotify
     - [X] Saber que canción está escuchando el usuario.
     - [ ] Crear/modificar playlist.
 - [X] Petición API Riot para saber el champ jugado por cada user.
