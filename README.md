@@ -8,7 +8,7 @@
 - [X] Petición API Riot para saber el champ jugado por cada user.
 - [ ] Petición API Local para modificar la BBDD, metiendo una canción en un campeon concreto.
 - [ ] Relacionar todas las peticiones anteriores y hacerlo cada X tiempo (cron)
-- [ ] Saber si una persona se ha logueado.
+- [X] Saber si una persona se ha logueado.
 - [ ] Diseño
     - [ ] Header: Logo de la página en medio con el estado del usuario a la derecha del header (si no, login/register).
     - [ ] Footer: linea negra o un texto de copyright.
